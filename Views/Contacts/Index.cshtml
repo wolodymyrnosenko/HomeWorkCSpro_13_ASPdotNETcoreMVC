@@ -1,0 +1,30 @@
+@model IEnumerable<NotesContactsMvc.Models.Contact>
+@{
+    ViewData["Title"] = "Контакти";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Контакти</h2>
+    <a class="btn btn-primary" asp-action="Create">Новий контакт</a>
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Ім'я</th><th>Телефон</th><th>Email</th><th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.Mobile</td>
+            <td>@c.Email</td>
+            <td class="text-nowrap">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@c.Id">Деталі</a>
+                <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@c.Id">Редагувати</a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@c.Id">Видалити</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

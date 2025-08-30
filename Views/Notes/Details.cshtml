@@ -1,0 +1,14 @@
+@model NotesContactsMvc.Models.Note
+@{
+    ViewData["Title"] = "Деталі замітки";
+}
+<h2 class="mb-3">@Model.Title</h2>
+<p class="text-muted">@Model.CreatedAt.ToString("f")</p>
+<pre class="p-3 bg-white border rounded">@Model.Content</pre>
+<div class="mt-2">
+    @foreach (var t in Model.GetTagList())
+    {
+        <span class="badge text-bg-secondary">@t</span>
+    }
+</div>
+<a class="btn btn-link mt-3" asp-action="Index">← До списку</a>

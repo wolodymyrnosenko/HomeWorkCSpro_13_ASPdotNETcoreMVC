@@ -1,0 +1,24 @@
+@model NotesContactsMvc.Models.Note
+@{
+    ViewData["Title"] = "Нова замітка";
+}
+<h2>Нова замітка</h2>
+<form asp-action="Create" method="post" class="mt-3">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control"/>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Tags" class="form-label"></label>
+        <input asp-for="Tags" class="form-control" placeholder="tag1, tag2"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Зберегти</button>
+    <a asp-action="Index" class="btn btn-link">Скасувати</a>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

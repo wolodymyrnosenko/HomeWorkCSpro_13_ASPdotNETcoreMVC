@@ -1,0 +1,12 @@
+@model NotesContactsMvc.Models.Contact
+@{
+    ViewData["Title"] = "Деталі контакту";
+}
+<h2 class="mb-3">@Model.Name</h2>
+<dl class="row">
+    <dt class="col-sm-3">Мобільний</dt><dd class="col-sm-9">@Model.Mobile</dd>
+    <dt class="col-sm-3">Альт. мобільний</dt><dd class="col-sm-9">@Model.AltMobile</dd>
+    <dt class="col-sm-3">Email</dt><dd class="col-sm-9">@Model.Email</dd>
+    <dt class="col-sm-3">Опис</dt><dd class="col-sm-9">@Model.About</dd>
+</dl>
+<a class="btn btn-link" asp-action="Index">← До списку</a>

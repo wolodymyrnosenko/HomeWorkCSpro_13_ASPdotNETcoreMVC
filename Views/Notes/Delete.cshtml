@@ -1,0 +1,13 @@
+@model NotesContactsMvc.Models.Note
+@{
+    ViewData["Title"] = "Видалення замітки";
+}
+<h2>Видалити замітку</h2>
+<div class="alert alert-danger">
+    Ви впевнені, що хочете видалити замітку <strong>@Model.Title</strong>?
+</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Видалити</button>
+    <a asp-action="Index" class="btn btn-link">Скасувати</a>
+</form>

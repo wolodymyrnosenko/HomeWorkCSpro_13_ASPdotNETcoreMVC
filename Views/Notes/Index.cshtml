@@ -1,0 +1,39 @@
+@model IEnumerable<NotesContactsMvc.Models.Note>
+@{
+    ViewData["Title"] = "Замітки";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Замітки</h2>
+    <a class="btn btn-primary" asp-action="Create">Нова замітка</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Назва</th>
+        <th>Дата</th>
+        <th>Теги</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var n in Model)
+    {
+        <tr>
+            <td>@n.Title</td>
+            <td>@n.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>
+                @foreach (var t in n.GetTagList())
+                {
+                    <span class="badge text-bg-secondary">@t</span>
+                }
+            </td>
+            <td class="text-nowrap">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@n.Id">Деталі</a>
+                <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@n.Id">Редагувати</a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@n.Id">Видалити</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

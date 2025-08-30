@@ -1,0 +1,22 @@
+@model NotesContactsMvc.Models.Note
+@{
+    ViewData["Title"] = "Редагування замітки";
+}
+<h2>Редагування замітки</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Tags"></label>
+        <input asp-for="Tags" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-success">Зберегти</button>
+    <a asp-action="Index" class="btn btn-link">Назад</a>
+</form>

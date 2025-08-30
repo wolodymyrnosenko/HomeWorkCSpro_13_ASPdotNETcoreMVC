@@ -1,0 +1,30 @@
+@model NotesContactsMvc.Models.Contact
+@{
+    ViewData["Title"] = "Редагування контакту";
+}
+<h2>Редагування контакту</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Mobile"></label>
+        <input asp-for="Mobile" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AltMobile"></label>
+        <input asp-for="AltMobile" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="About"></label>
+        <textarea asp-for="About" class="form-control" rows="4"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Зберегти</button>
+    <a asp-action="Index" class="btn btn-link">Назад</a>
+</form>
